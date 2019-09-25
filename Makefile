@@ -3,19 +3,20 @@ PREFIX  ?= /usr
 CFLAGS  ?= -O3 -pipe
 #CFLAGS  += -finline-functions
 LDFLAGS ?= -Wl,-s
+PSRC     = src
 
 .PHONY: all bsd install clean
 
 all:	sdelta
 
-sdelta: *.c *.h
-	$(CC) $(CFLAGS) $(LDFLAGS) *.c -lcrypto -o sdelta
+sdelta: $(PSRC)/*.c $(PSRC)/*.h
+	$(CC) $(CFLAGS) $(LDFLAGS) $(PSRC)/*.c -lcrypto -o sdelta
 
 clean:
 	rm -f sdelta
 
-bsd:  *.c *.h
-	$(CC) $(CFLAGS) -DUSE_LIBMD *.c $(LDFLAGS) -ldlmalloc /usr/lib/libmd.a -o sdelta
+bsd:  $(PSRC)/*.c $(PSRC)/*.h
+	$(CC) $(CFLAGS) -DUSE_LIBMD $(PSRC)/*.c $(LDFLAGS) -ldlmalloc /usr/lib/libmd.a -o sdelta
 
 install: sdelta
 	mkdir   -m 0755  -p                     $(PREFIX)/bin
