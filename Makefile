@@ -20,8 +20,8 @@ bsd:  $(PSRC)/*.c $(PSRC)/*.h
 
 install: sdelta
 	mkdir   -m 0755  -p                     $(PREFIX)/bin
-	install -m 0755  sdelta   sd            $(PREFIX)/bin
-	mkdir   -m 0755  -p                     $(PREFIX)/share/sdelta
-	install -m 0644  LICENSE  USAGE         $(PREFIX)/share/sdelta
-	install -m 0644  README   sdreq_README  $(PREFIX)/share/sdelta
-	install -m 0644  sdelta.magic           $(PREFIX)/share/sdelta/magic
+	install -m 0755  sdelta   sdeltac       $(PREFIX)/bin
+	mkdir   -m 0755  -p                     $(PREFIX)/share/doc/sdelta
+	install -m 0644  LICENSE  USAGE         $(PREFIX)/share/doc/sdelta
+	install -m 0644  README   README.1st    $(PREFIX)/share/doc/sdelta
+	install -m 0644  sdelta.magic           $(PREFIX)/share/doc/sdelta/magic

@@ -1,8 +1,8 @@
 #!/bin/bash
-# sd compression wrapper for sdelta
+# sdeltac compression wrapper for sdelta
 # Copyright 2005 by Kyle Sallee
 # Distributed under the terms of the SPL
-# See /usr/share/sdelta/LICENSE
+# See /usr/share/doc/sdelta/LICENSE
 
 
 compression()  {
@@ -142,13 +142,13 @@ translate()  {
 if    [  "$1"  == "--help" ]  ||
       ((  $#   <  3       ))
 then
-  echo      $"sd compression wrapper for sdelta"
+  echo      $"sdeltac compression wrapper for sdelta"
   echo      $"Copyright 2005 by Kyle Sallee"
   echo      $"Distributed under the terms of the SPL"
   echo      $"See /usr/share/sdelta/LICENSE"
   echo
-  echo  -e  $"To generate a patch file:  \e[32msd  \e[34mold  \e[36mnew    \e[32mpatch\e[0m"
-  echo  -e  $"To apply    a patch file:  \e[32msd  \e[34mold  \e[32mpatch  \e[36mnew\e[0m"
+  echo  -e  $"To generate a patch file:  \e[32msdeltac  \e[34mold  \e[36mnew    \e[32mpatch\e[0m"
+  echo  -e  $"To apply    a patch file:  \e[32msdeltac  \e[34mold  \e[32mpatch  \e[36mnew\e[0m"
   echo      $"Compression types that are automatically detected and supported are:"
   echo       "7za, bzip2, gzip"
   exit  1
@@ -158,8 +158,8 @@ then  translate    "$2"  "$3"
       exit  0
 fi
 
-if    !  [  -f  ${SD_MAGIC:=/usr/share/sdelta/magic}  ]
-then              SD_MAGIC=~/usr/share/sdelta/magic
+if    !  [  -f  ${SD_MAGIC:=/usr/share/doc/sdelta/magic}  ]
+then              SD_MAGIC=~/usr/share/doc/sdelta/magic
 fi
 
 if  !  [[  -f  $SD_MAGIC  ]]
